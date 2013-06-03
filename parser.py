@@ -45,7 +45,7 @@ class AFMParser(object):
         offset = int(self.scans[layer]["Data offset"])
         rows = int(self.scans[layer]["Number of lines"])
         cols = int(self.scans[layer]["Samps/line"])
-        return  self._read_at_offset(offset, rows, cols)
+        return rot90(self._read_at_offset(offset, rows, cols) * self.get_scale(layer))
 
     def get_size_and_unit(self):
         pass

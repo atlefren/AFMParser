@@ -1,6 +1,5 @@
 from parser import AFMParser
 from numpy import *
-import Image
 import gdal
 
 parser = AFMParser("data/POPC.001")

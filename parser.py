@@ -1,6 +1,5 @@
 import struct
 from numpy import *
-import Image
 
 def between(left, right, s):
     before,_,a = s.partition(left)

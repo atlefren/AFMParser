@@ -24,3 +24,8 @@ Todo
 ----
 This is by all means a work in progress. Several things remain to be done. See (http://gis.stackexchange.com/questions/62427/creating-nanoscale-dem-with-gdal)
 for additional details.
+
+Install
+-------
+Make sure to have the python-gdal bindings and numpy installed (can't get gdal to work with a virtualenv)
+

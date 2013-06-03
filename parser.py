@@ -6,6 +6,15 @@ def between(left, right, s):
     a, _, after = a.partition(right)
     return a
 
+def get_number(str):
+    l = []
+    for t in str.split():
+        try:
+            l.append(float(t))
+        except ValueError:
+            pass
+    return l
+
 class AFMParser(object):
 
     def __init__(self, filename):
@@ -46,8 +55,12 @@ class AFMParser(object):
         cols = int(self.scans[layer]["Samps/line"])
         return rot90(self._read_at_offset(offset, rows, cols) * self.get_scale(layer))
 
-    def get_size_and_unit(self):
-        pass
+    def get_size(self):
+        scan_size = get_number(self._find_in_header("Scan Size")[0].split(": ")[1])[0]
+        x_offset = get_number(self._find_in_header("X Offset")[0].split(": ")[1])[0]
+        y_offset = get_number(self._find_in_header("Y Offset")[0].split(": ")[1])[0]
+
+        return scan_size, x_offset, y_offset
 
     def _get_header(self):
         """
